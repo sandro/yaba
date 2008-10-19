@@ -1,0 +1,9 @@
+%h2=register_or_edit_profile
+.span-6
+  %h3 Edit Your Profile
+
+  = error_messages_for :user
+
+  -form_for @user do |f|
+    = render :partial => 'users/profile', :locals => {:f => f}
+    = f.submit

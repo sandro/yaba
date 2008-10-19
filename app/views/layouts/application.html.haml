@@ -1,0 +1,27 @@
+!!! Strict
+%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html;charset=UTF-8", "http-equiv" => "content-type" }/
+    %title
+      = page_title
+    = stylesheet_link_tag 'blueprint/screen', 'app'
+    = javascript_include_tag 'jquery-1.2.6.min.js', 'application'
+
+  %body
+    .container
+      #header.span-21
+        %div.span-9
+          %h1 
+            %a{:href => root_path}= APP_NAME 
+        %div.span-9.prepend-1.last
+          = render :partial => 'shared/navigation'
+      #content.span-13
+        = render_flashes
+        = yield
+      #sidebar.span-8.last
+        = yield :sidebar
+      #footer.span-21
+        = render :partial => 'shared/footer'
+  - if RAILS_ENV == 'production'
+    -# Google Analytics
+

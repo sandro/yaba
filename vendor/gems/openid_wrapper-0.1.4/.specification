@@ -1,0 +1,88 @@
+--- !ruby/object:Gem::Specification 
+name: openid_wrapper
+version: !ruby/object:Gem::Version 
+  version: 0.1.4
+platform: ruby
+authors: 
+- Priit Tamboom
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2008-10-06 00:00:00 -04:00
+default_executable: 
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: ruby-openid
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: 2.1.2
+    version: 
+description: Openid wrapper for Rails yeah
+email: priit@mx.ee
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- README.rdoc
+- MIT-LICENSE
+- CHANGELOG.rdoc
+files: 
+- CHANGELOG.rdoc
+- generators
+- generators/openid_wrapper_migration
+- generators/openid_wrapper_migration/openid_wrapper_migration_generator.rb
+- generators/openid_wrapper_migration/templates
+- generators/openid_wrapper_migration/templates/migration.rb
+- generators/openid_wrapper_migration/USAGE
+- init.rb
+- lib
+- lib/openid_wrapper
+- lib/openid_wrapper/association.rb
+- lib/openid_wrapper/nonce.rb
+- lib/openid_wrapper/openid_ar_store.rb
+- lib/openid_wrapper/openid_wrapper.rb
+- lib/openid_wrapper.rb
+- MIT-LICENSE
+- openid_wrapper.gemspec
+- rails
+- rails/init.rb
+- Rakefile
+- README.rdoc
+has_rdoc: true
+homepage: http://priit.mx.ee/openid_wrapper
+post_install_message: 
+rdoc_options: 
+- --main
+- README.rdoc
+- --inline-source
+- --charset=UTF-8
+require_paths: 
+- bin
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: openid_wrapper
+rubygems_version: 1.2.0
+signing_key: 
+specification_version: 2
+summary: Openid wrapper for Rails
+test_files: []
+

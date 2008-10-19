@@ -1,0 +1,44 @@
+body {
+  color: #222333; }
+
+a {
+  font-size: 1.1em;
+  text-decoration: none;
+  color: #226893; }
+  a:hover {
+    color: #3464e0; }
+
+#header ul {
+  list-style-type: none; }
+  #header ul li {
+    display: inline;
+    margin-right: 6px; }
+
+#content form label {
+  display: block; }
+#content form input {
+  margin-bottom: 9px; }
+#content form .label_for_error_field {
+  padding-left: 22px;
+  background: url("/images/asterisk_orange.png") top left no-repeat; }
+
+#errorExplanation {
+  background: #e9a591;
+  border: 3px solid #9d6f61;
+  padding: 9px 18px;
+  margin: 18px 0; }
+  #errorExplanation h2 {
+    font-size: 1.75em; }
+  #errorExplanation p {
+    font-size: 1.1em; }
+
+#footer {
+  background: #DDDDDE;
+  padding: 0 0 0 9px; }
+  #footer ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none; }
+    #footer ul li {
+      display: inline;
+      margin-right: 6px; }

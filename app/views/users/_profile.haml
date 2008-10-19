@@ -1,0 +1,13 @@
+.field
+  = f.label :email
+  = f.text_field :email
+.field
+  = f.label :first_name
+  = f.text_field :first_name
+.field
+  = f.label :last_name
+  = f.text_field :last_name
+- if not @user.using_openid?
+  .field
+    = f.label :password
+    = f.password_field :password

@@ -1,0 +1,9 @@
+- form_for :user_login, :url => session_path do |f|
+  .field
+    = f.label :identity_url
+    = f.text_field :identity_url
+  .field
+    = f.label :remember_me
+    = f.check_box :remember_me
+  .field
+    = submit_tag 'Log in'

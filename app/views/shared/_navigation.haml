@@ -1,0 +1,9 @@
+%ul
+  -if logged_in?
+    %li
+      %a{:href => logout_path} Log out
+  -else
+    %li
+      %a{:href => login_path} Log in
+    %li
+      %a{:href => signup_path} Sign Up

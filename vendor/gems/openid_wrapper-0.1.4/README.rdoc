@@ -1,0 +1,116 @@
+
+= OpenidWrapper
+
+
+Thin OpenID Consumer Wrapper for Ruby on Rails using ruby-openid gem.
+
+
+== SHORT STORY
+
+It helps to keep your session controller nice and clean and provides
+some handy methods such as begin_openid, complete_openid and openid_params.
+
+
+== LONG STORY
+
+The goal is to have openid consumer wrapper, what follows more closely 
+the spirit of OpenID spec and the same time provides some handy methods. 
+
+No more you need squeezed openid through one method as in the original plugin, 
+enjoy same clarity as you will find in OpenID spec, so it means when you start request
+then you just use method begin_openid (aliased to create_openid) and when you complete
+your request, then use method complete_openid. 
+
+note: this wrapper is made openid only in mind, so that's why it
+might not be the quickest fit for you if you also need old way of 
+username-password authentication, however they play nice together if you want so. 
+
+
+= Installation
+
+NB! OPENID WRAPPER IS BETA, SO NO GEM YET!
+I pushed it up with git for people who would like to review the code and give 
+some ideas to improve this initial stuff. 
+
+First you need Rails 2.1.0 or newer.
+
+Start with:
+
+  sudo gem install openid-wrapper
+
+Add to config/environment.rb:
+
+  config.gem 'openid_wrapper'
+
+Add to config/routes.rb:
+  
+  map.resources :users
+
+  # unfortunatly OpenID spec does not honor RESTful design,
+  # so we need complete action as well.
+  map.resources :sessions, :collection => {:complete => :get}
+
+  # some handy shortcuts, you can use as link_to 'Signup', signup_path
+  map.signup '/signup', :controller => 'users', :action => 'new'
+  map.login '/login', :controller => 'sessions', :action => 'new'
+  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
+
+Add to app/controller/sessions_controller.rb # Look how slim and clean controller :-)
+  def create
+    begin_openid
+  end
+
+  def complete
+    complete_openid
+  end
+
+Add to app/views/users/new.html.haml:
+
+  - form_tag sessions_path do
+    = text_field_tag :openid_identifier
+    = submit_tag 'Login'
+
+
+== Additional Tips and Notes
+
+* Make OpenID identifier field more nuby friendly and 
+add OpenID official selector from https://www.idselector.com/
+
+* OpenID Wrapper will generate log entry:
+  ** openid_wrapper: initialized properly.
+
+
+== How to contribute?
+
+You are welcome to clone it at your favourite git repository:
+
+  main repository: 
+    http://gitorious.org/projects/openid-wrapper
+
+  secondary repositories:
+    http://rubyforge.org/projects/openid-wrapper/ 
+    http://github.com/priit/openid-wrapper/
+
+Check out TODO file to find out some pending tasks or do whatever you
+like to improve. Just send merge request, when you like to push
+your improvements. 
+
+
+== General Info about OpenID
+
+OpenID Authentication 2.0 - final specifications
+http://openid.net/specs/openid-authentication-2_0.html
+
+
+== History and Credits
+
+ * Original openid_wrapper author.[1]
+ * OpenID Authentication plugin started by David Heinemeier Hansson.[2]
+ * Alex Gorbatchev made complete clean up without changing original API.[3]
+ * Priit Tamboom made complete API change as well and gemified it.[4]
+
+1. http://svn.rubyonrails.org/rails/plugins/open_id_authentication/
+2. http://code.google.com/p/open-id-authentication/
+3. http://gitorious.org/projects/openid-wrapper/ 
+
+Copyright (c) 2008 Priit Tamboom, released under the MIT license

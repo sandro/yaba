@@ -1,0 +1,13 @@
+<h1>Request password reset</h1>
+
+<%%= error_messages_for :<%= file_name %> %>
+
+<p>Have you forgotten your password? Don't worry, simply enter your email address below and we will send you a link to enable you to reset your password.</p>
+
+<%% form_for :<%= file_name %> do |f| -%>
+
+<p><%%= f.label :email %><br />
+<%%= f.text_field :email %></p>
+
+<p><%%= submit_tag 'Submit' %></p>
+<%% end -%>

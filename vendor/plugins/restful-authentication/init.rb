@@ -1,0 +1,6 @@
+require File.dirname(__FILE__) + '/lib/authorization'
+require File.dirname(__FILE__) + '/lib/authorization/aasm_roles'
+require File.dirname(__FILE__) + '/lib/authorization/stateful_roles'
+require File.dirname(__FILE__) + '/lib/authentication'
+require File.dirname(__FILE__) + '/lib/authentication/by_password'
+require File.dirname(__FILE__) + '/lib/authentication/by_cookie_token'

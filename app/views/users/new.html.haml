@@ -1,0 +1,33 @@
+%h2 Sign up as a new user
+%p
+  Already have an account?
+  = link_to "Log in", login_path
+.span-6
+  %h3 Use your E-mail Address
+
+  = error_messages_for :user
+
+  -form_for @user do |f|
+    .field
+      = f.label :email
+      = f.text_field :email
+    .field
+      = f.label :first_name
+      = f.text_field :first_name
+    .field
+      = f.label :last_name
+      = f.text_field :last_name
+    - if not @user.using_openid?
+      .field
+        = f.label :password
+        = f.password_field :password
+      .field
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation
+    .field
+      = f.submit 'Sign up'
+
+- if not @user.using_openid?
+  .span-6.prepend-1.last
+    %h3 Sign up via Open ID
+    = render :partial => 'sessions/openid_form'

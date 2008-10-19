@@ -1,0 +1,14 @@
+- page_title = "Log In"
+
+= error_messages_for :user_login
+
+%h2 Log In
+
+%h3 Use Open ID
+= render :partial => 'openid_form'
+%br
+%br
+
+%h3 Use E-mail
+= render :partial => 'email_login'
+

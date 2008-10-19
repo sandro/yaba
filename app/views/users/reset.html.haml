@@ -1,0 +1,16 @@
+%h2 Reset Password
+= error_messages_for :user
+
+%p
+  == Reset password for #{@user.email} below
+
+- form_for :user, :url => reset_password_users_path, :html => {:method => :put} do |f|
+  .field
+    = f.label :password
+    = f.password_field :password
+  .field
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+  .field
+    = f.hidden_field :reset_code
+    = f.submit "Save new password"
